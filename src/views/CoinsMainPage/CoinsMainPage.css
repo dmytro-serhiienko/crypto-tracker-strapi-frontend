@@ -12,7 +12,7 @@
   box-sizing: border-box;
   padding: 14px;
   border: 1px solid var(--app-border);
-  border-radius: 18px;
+  border-radius: 22px;
   background: linear-gradient(
     145deg,
     rgba(22, 34, 55, 0.82),

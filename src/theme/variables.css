@@ -63,7 +63,7 @@ ion-searchbar {
   --color: var(--ion-text-color);
   --placeholder-color: #98a6bf;
   --box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
-  --border-radius: 18px;
+  --border-radius: 26px;
 }
 
 ion-tab-bar {
