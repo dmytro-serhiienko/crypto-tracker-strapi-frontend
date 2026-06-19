@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap");
+
+:root {
+  --ion-font-family: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+
+  --ion-background-color: #0a0f1a;
+  --ion-background-color-rgb: 10, 15, 26;
+  --ion-text-color: #e8eefc;
+  --ion-text-color-rgb: 232, 238, 252;
+
+  --ion-color-primary: #56d7ff;
+  --ion-color-primary-rgb: 86, 215, 255;
+  --ion-color-primary-contrast: #04111c;
+  --ion-color-primary-contrast-rgb: 4, 17, 28;
+  --ion-color-primary-shade: #4cbde0;
+  --ion-color-primary-tint: #67dcff;
+
+  --ion-color-secondary: #ffb86b;
+  --ion-color-secondary-rgb: 255, 184, 107;
+  --ion-color-secondary-contrast: #1f1406;
+  --ion-color-secondary-contrast-rgb: 31, 20, 6;
+  --ion-color-secondary-shade: #e2a260;
+  --ion-color-secondary-tint: #ffc07a;
+
+  --ion-color-success: #45db96;
+  --ion-color-danger: #ff5f79;
+  --ion-color-medium: #95a3bf;
+
+  --app-surface-1: rgba(18, 28, 46, 0.82);
+  --app-surface-2: rgba(23, 36, 58, 0.9);
+  --app-border: rgba(124, 162, 224, 0.24);
+  --app-shadow: 0 16px 34px rgba(0, 0, 0, 0.36);
+}
+
+ion-content {
+  --background:
+    radial-gradient(
+      circle at 12% 8%,
+      rgba(86, 215, 255, 0.12),
+      transparent 36%
+    ),
+    radial-gradient(
+      circle at 88% 14%,
+      rgba(255, 184, 107, 0.11),
+      transparent 34%
+    ),
+    linear-gradient(180deg, #0b1220 0%, #090f1a 45%, #070c16 100%);
+}
+
+ion-toolbar {
+  --background: rgba(11, 17, 31, 0.74);
+  --border-color: transparent;
+  backdrop-filter: blur(12px);
+}
+
+ion-header ion-title {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+ion-searchbar {
+  --background: var(--app-surface-1);
+  --color: var(--ion-text-color);
+  --placeholder-color: #98a6bf;
+  --box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  --border-radius: 18px;
+}
+
+ion-tab-bar {
+  --background: rgba(12, 19, 35, 0.86);
+  --border: 1px solid var(--app-border);
+  --color: #94a4c3;
+  --color-selected: #f3f8ff;
+  backdrop-filter: blur(10px);
+}

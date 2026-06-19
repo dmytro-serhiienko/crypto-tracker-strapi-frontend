@@ -1,0 +1,7 @@
+{
+  "name": "crypto-tracker-strapi-frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}

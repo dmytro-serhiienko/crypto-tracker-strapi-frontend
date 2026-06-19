@@ -1,0 +1,91 @@
+.coin-card {
+  --border-radius: 14px;
+  --background: linear-gradient(
+    145deg,
+    var(--app-surface-1),
+    var(--app-surface-2)
+  );
+  --padding-start: 12px;
+  --inner-padding-end: 12px;
+  margin: 10px 12px;
+  border: 1px solid var(--app-border);
+  border-radius: 14px;
+  box-shadow: var(--app-shadow);
+}
+
+.coin-logo {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(
+    145deg,
+    rgba(86, 215, 255, 0.2),
+    rgba(255, 184, 107, 0.14)
+  );
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #f6fbff;
+}
+
+.coin-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+}
+
+.coin-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.coin-name {
+  overflow: hidden;
+  color: var(--ion-text-color);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.coin-symbol {
+  margin: 0;
+  color: var(--ion-color-medium);
+  font-size: 0.86rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+.coin-category {
+  align-self: flex-start;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.coin-price {
+  width: 104px;
+  display: grid;
+  gap: 4px;
+  justify-items: end;
+  font-size: 0.82rem;
+}
+
+.coin-price strong {
+  font-size: 0.95rem;
+}
+
+.positive {
+  color: #45db96;
+}
+
+.negative {
+  color: #ff5f79;
+}

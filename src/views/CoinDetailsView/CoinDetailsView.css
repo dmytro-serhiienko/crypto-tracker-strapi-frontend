@@ -1,0 +1,98 @@
+.detail {
+  display: grid;
+  gap: 20px;
+  padding: 16px;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid var(--app-border);
+  border-radius: 18px;
+  background: linear-gradient(
+    140deg,
+    rgba(23, 36, 58, 0.92),
+    rgba(16, 27, 44, 0.92)
+  );
+  box-shadow: var(--app-shadow);
+}
+
+.hero img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  border-radius: 16px;
+  padding: 6px;
+  background: linear-gradient(
+    145deg,
+    rgba(86, 215, 255, 0.22),
+    rgba(255, 184, 107, 0.16)
+  );
+}
+
+.hero p,
+.price-row span {
+  margin: 0 0 4px;
+  color: var(--ion-color-medium);
+  font-size: 0.85rem;
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: 1.6rem;
+  letter-spacing: 0.01em;
+}
+
+.price-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.price-row div {
+  padding: 14px;
+  border: 1px solid var(--app-border);
+  border-radius: 14px;
+  background: linear-gradient(
+    145deg,
+    var(--app-surface-1),
+    var(--app-surface-2)
+  );
+}
+
+.price-row strong {
+  display: block;
+  font-size: 1.15rem;
+}
+
+.chart-wrap {
+  padding: 18px 12px;
+  border: 1px solid var(--app-border);
+  border-radius: 14px;
+  background: linear-gradient(
+    145deg,
+    var(--app-surface-1),
+    var(--app-surface-2)
+  );
+}
+
+.chart-wrap :deep(.sparkline) {
+  width: 100%;
+  height: 120px;
+}
+
+.positive {
+  color: #45db96;
+}
+
+.negative {
+  color: #ff5f79;
+}
+
+.state-text {
+  padding: 24px 16px;
+  text-align: center;
+  color: #a9b7d1;
+}

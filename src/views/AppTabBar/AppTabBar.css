@@ -1,0 +1,22 @@
+ion-tab-bar {
+  margin: 0 14px 14px;
+  border-radius: 18px;
+  box-shadow: var(--app-shadow);
+}
+
+ion-tab-button {
+  --color-selected: var(--ion-text-color);
+  min-height: 58px;
+}
+
+ion-tab-button::part(native) {
+  border-radius: 14px;
+}
+
+ion-tab-button.tab-selected::part(native) {
+  background: linear-gradient(
+    135deg,
+    rgba(86, 215, 255, 0.2),
+    rgba(255, 184, 107, 0.16)
+  );
+}
