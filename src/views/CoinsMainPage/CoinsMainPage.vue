@@ -19,7 +19,7 @@
 
       <section class="controls">
         <ion-searchbar
-          :value="searchInput"
+          :value="coinsStore.search"
           :debounce="300"
           placeholder="Search coins"
           @ionInput="handleSearch"
@@ -89,7 +89,7 @@
 <!--? ЛОГИКА -->
 <script setup lang="ts">
 import "./CoinsMainPage.css";
-import { nextTick, onMounted, ref } from "vue";
+import { nextTick, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import {
   IonButton,
@@ -122,7 +122,6 @@ import type { Coin, CoinCategory, SortOption } from "@/types/coin";
 const router = useRouter();
 
 const coinsStore = useCoinsStore();
-const searchInput = ref("");
 
 // при загрузке страницы проверяем наличие монет, если пусто — запрашиваем
 onMounted(() => {
@@ -131,7 +130,7 @@ onMounted(() => {
 
 // навигация к странице детализации монеты
 function openCoin(coin: Coin) {
-  router.push(`/tabs/coins/${coin.documentId}`);
+  router.push(`/coins/${coin.documentId}`);
 }
 
 // обработка ввода в поиск с сбросом пагинации

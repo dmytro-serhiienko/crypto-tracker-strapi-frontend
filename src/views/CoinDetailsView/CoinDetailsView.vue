@@ -4,7 +4,7 @@
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-back-button default-href="/tabs/coins" />
+          <ion-back-button default-href="/coins" />
         </ion-buttons>
 
         <ion-title>{{ coin?.symbol || "Coin" }}</ion-title>

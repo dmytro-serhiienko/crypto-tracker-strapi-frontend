@@ -79,6 +79,6 @@ onMounted(() => {
 
 // функ для перехода на страницу деталей конкретной монеты
 function openCoin(coin: Coin) {
-  router.push(`/tabs/coins/${coin.documentId}`);
+  router.push(`/coins/${coin.documentId}`);
 }
 </script>

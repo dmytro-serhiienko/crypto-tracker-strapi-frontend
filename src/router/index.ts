@@ -5,7 +5,7 @@ import AppTabBar from "../views/AppTabBar/AppTabBar.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    redirect: "/tabs/coins",
+    redirect: "/coins",
   },
   {
     path: "/tabs",
@@ -13,22 +13,26 @@ const routes: Array<RouteRecordRaw> = [
     children: [
       {
         path: "",
-        redirect: "/tabs/coins",
+        redirect: "/coins",
       },
       {
         path: "coins",
+        alias: "/coins",
         component: () => import("../views/CoinsMainPage/CoinsMainPage.vue"),
       },
       {
         path: "coins/:documentId",
+        alias: "/coins/:documentId",
         component: () => import("../views/CoinDetailsView/CoinDetailsView.vue"),
       },
       {
         path: "favorites",
+        alias: "/favorites",
         component: () => import("../views/FavoritesPage/FavoritesPage.vue"),
       },
       {
         path: "stats",
+        alias: "/stats",
         component: () => import("../views/StatsPage/StatsPage.vue"),
       },
     ],

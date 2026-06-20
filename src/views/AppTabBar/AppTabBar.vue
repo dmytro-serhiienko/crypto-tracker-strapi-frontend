@@ -5,17 +5,17 @@
       <ion-router-outlet></ion-router-outlet>
 
       <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="coins" href="/tabs/coins">
+        <ion-tab-button tab="coins" href="/coins">
           <ion-icon aria-hidden="true" :icon="pulseOutline" />
           <ion-label>Coins</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="favorites" href="/tabs/favorites">
+        <ion-tab-button tab="favorites" href="/favorites">
           <ion-icon aria-hidden="true" :icon="bookmarksOutline" />
           <ion-label>Favorites</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="stats" href="/tabs/stats">
+        <ion-tab-button tab="stats" href="/stats">
           <ion-icon aria-hidden="true" :icon="statsChartOutline" />
           <ion-label>Stats</ion-label>
         </ion-tab-button>
