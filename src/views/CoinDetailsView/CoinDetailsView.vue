@@ -80,7 +80,7 @@
 
 <!--? ЛОГИКА -->
 <script setup lang="ts">
-import { computed, onMounted } from "vue";
+import { computed } from "vue";
 import { useRoute } from "vue-router";
 // компоненти Ionic = создания интерфейса
 import {
@@ -100,6 +100,7 @@ import {
 import { star, starOutline } from "ionicons/icons";
 // линия графика
 import SparklineChart from "@/components/GraficLine/GraficLine.vue";
+import { useEnsureCoinsLoaded } from "@/composables/useEnsureCoinsLoaded";
 import { STRAPI_URL } from "@/services/api";
 import { useCoinsStore } from "@/stores/coins";
 import { useFavoritesStore } from "@/stores/favorites";
@@ -108,6 +109,7 @@ import { useFavoritesStore } from "@/stores/favorites";
 const route = useRoute();
 const coinsStore = useCoinsStore();
 const favoritesStore = useFavoritesStore();
+useEnsureCoinsLoaded();
 
 // получаем ID монеты из URL
 const documentId = computed(() => String(route.params.documentId));
@@ -135,13 +137,6 @@ const formattedChange = computed(() => {
   if (!coin.value) return "";
   const prefix = coin.value.priceChange24h >= 0 ? "+" : "";
   return `${prefix}${coin.value.priceChange24h.toFixed(2)}%`;
-});
-
-// хук жиз цикла загружаем данные, если их еще нет в кеше
-onMounted(() => {
-  if (!coinsStore.coins.length) {
-    coinsStore.fetchCoins();
-  }
 });
 </script>
 

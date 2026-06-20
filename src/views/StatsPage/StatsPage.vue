@@ -29,7 +29,7 @@
 <!--? ЛОГИКА -->
 <script setup lang="ts">
 import "./StatsPage.css";
-import { computed, onMounted } from "vue";
+import { computed } from "vue";
 import {
   IonContent,
   IonHeader,
@@ -37,29 +37,17 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/vue";
+import { useEnsureCoinsLoaded } from "@/composables/useEnsureCoinsLoaded";
 import { useCoinsStore } from "@/stores/coins";
 import { useFavoritesStore } from "@/stores/favorites";
 
-// ФУНКЦИИ
-// доступ к сторе монет => данные о ценах, списки
 const coinsStore = useCoinsStore();
-
-// доступ к сторе избранных монет
 const favoritesStore = useFavoritesStore();
+useEnsureCoinsLoaded();
 
-// нахождение лидера роста
 const topGainer = computed(() =>
-  // Создаем копию массива монет (не изменяет оригинал), сортируем от наибольшего прироста к наименьшему => берет первую монету
   [...coinsStore.coins]
     .sort((a, b) => b.priceChange24h - a.priceChange24h)
     .at(0),
 );
-
-// Хук жиз цикла выполняется сразу после монтирования компонента на экран
-onMounted(() => {
-  // проверка если стора пустая => запускаем процесс загрузки данных
-  if (!coinsStore.coins.length) {
-    coinsStore.fetchCoins();
-  }
-});
 </script>

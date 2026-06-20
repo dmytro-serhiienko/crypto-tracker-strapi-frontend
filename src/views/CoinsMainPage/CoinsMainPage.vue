@@ -89,7 +89,7 @@
 <!--? ЛОГИКА -->
 <script setup lang="ts">
 import "./CoinsMainPage.css";
-import { nextTick, onMounted } from "vue";
+import { nextTick } from "vue";
 import { useRouter } from "vue-router";
 import {
   IonButton,
@@ -115,50 +115,53 @@ import {
 } from "@ionic/vue";
 import { refreshOutline } from "ionicons/icons";
 import CoinCard from "@/components/CoinCardTrafaret/CoinCardTrafaret.vue";
+import { useEnsureCoinsLoaded } from "@/composables/useEnsureCoinsLoaded";
 import { useCoinsStore } from "@/stores/coins";
 import type { Coin, CoinCategory, SortOption } from "@/types/coin";
 
 // роутер и стора
 const router = useRouter();
-
 const coinsStore = useCoinsStore();
+useEnsureCoinsLoaded();
 
-// при загрузке страницы проверяем наличие монет, если пусто — запрашиваем
-onMounted(() => {
-  if (!coinsStore.coins.length) coinsStore.fetchCoins();
-});
-
-// навигация к странице детализации монеты
 function openCoin(coin: Coin) {
   router.push(`/coins/${coin.documentId}`);
 }
 
-// обработка ввода в поиск с сбросом пагинации
-function handleSearch(event: CustomEvent) {
-  coinsStore.search = String(event.detail.value || "");
+function updateFilters(updateFn: () => void) {
+  updateFn();
   coinsStore.resetPagination();
 }
 
-// смена категории с сбросом пагинации
+function handleSearch(event: CustomEvent) {
+  updateFilters(() => {
+    coinsStore.search = String(event.detail.value || "");
+  });
+}
+
 function handleCategory(event: CustomEvent) {
-  coinsStore.category = event.detail.value as CoinCategory | "All";
-  coinsStore.resetPagination();
+  updateFilters(() => {
+    coinsStore.category = event.detail.value as CoinCategory | "All";
+  });
 }
 
 // смена метода сортировки с сбросом пагинации
 function handleSort(event: CustomEvent) {
-  coinsStore.sort = event.detail.value as SortOption;
-  coinsStore.resetPagination();
+  updateFilters(() => {
+    coinsStore.sort = event.detail.value as SortOption;
+  });
 }
 
-// синхронизация цен через API
+async function syncPrices() {
+  await coinsStore.syncPrices();
+}
+
 async function handleSync() {
-  await coinsStore.syncPrices();
+  await syncPrices();
 }
 
-// обновление цен при жесте "потянуть вниз"
 async function handleRefresh(event: CustomEvent) {
-  await coinsStore.syncPrices();
+  await syncPrices();
   (event.target as HTMLIonRefresherElement).complete();
 }
 

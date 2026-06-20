@@ -7,6 +7,7 @@
     class="coin-card"
     @click="$emit('open', coin)"
   >
+    <!-- лого монеты -->
     <ion-avatar slot="start" class="coin-logo">
       <img v-if="logoUrl" :src="logoUrl" :alt="coin.name" />
       <span v-else>{{ coin.symbol.slice(0, 2) }}</span>

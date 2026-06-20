@@ -38,7 +38,7 @@ import {
   IonTabs,
 } from "@ionic/vue";
 
-// іконки
+// иконки
 import {
   pulseOutline,
   bookmarksOutline,
