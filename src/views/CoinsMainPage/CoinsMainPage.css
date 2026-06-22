@@ -1,30 +1,32 @@
 .coins-content {
-  --padding-start: 12px;
-  --padding-end: 12px;
-  --padding-bottom: 12px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-bottom: 100px;
 }
 
 .controls {
   display: grid;
   gap: 12px;
   margin: 12px 0;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 14px;
-  border: 1px solid var(--app-border);
+  padding: 16px;
   border-radius: 22px;
   background: linear-gradient(
-    145deg,
-    rgba(22, 34, 55, 0.82),
-    rgba(15, 25, 41, 0.88)
+    160deg,
+    rgba(255, 255, 255, 0.72),
+    rgba(255, 255, 255, 0.46)
   );
-  box-shadow: var(--app-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 12px 30px rgba(30, 40, 70, 0.1);
+  backdrop-filter: blur(24px) saturate(180%) brightness(1.03);
+  -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.03);
 }
 
 .state-text {
-  padding: 24px 16px;
+  padding: 48px 16px;
   text-align: center;
-  color: #a9b7d1;
+  color: var(--app-text-secondary);
 }
 
 ion-searchbar,
@@ -35,19 +37,32 @@ ion-select {
 }
 
 ion-select {
-  --background: rgba(17, 28, 46, 0.92);
+  --background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.78),
+    rgba(255, 255, 255, 0.5)
+  );
+  --color: var(--ion-text-color);
   --padding-start: 14px;
   --padding-end: 14px;
-  border: 1px solid var(--app-border);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 14px;
+  backdrop-filter: blur(22px) saturate(180%) brightness(1.03);
+  -webkit-backdrop-filter: blur(22px) saturate(180%) brightness(1.03);
 }
 
 ion-segment {
-  --background: rgba(15, 25, 40, 0.68);
-  border: 1px solid var(--app-border);
+  --background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.38)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 14px;
   overflow-x: auto;
   scrollbar-width: none;
+  backdrop-filter: blur(22px) saturate(180%) brightness(1.03);
+  -webkit-backdrop-filter: blur(22px) saturate(180%) brightness(1.03);
 }
 
 ion-segment::-webkit-scrollbar {
@@ -55,6 +70,8 @@ ion-segment::-webkit-scrollbar {
 }
 
 ion-segment-button {
-  --indicator-color: rgba(86, 215, 255, 0.22);
-  --indicator-box-shadow: none;
+  --color: #6b7a99;
+  --color-checked: #0d1b30;
+  --indicator-color: rgba(255, 255, 255, 0.96);
+  --indicator-box-shadow: 0 2px 8px rgba(30, 40, 70, 0.14);
 }

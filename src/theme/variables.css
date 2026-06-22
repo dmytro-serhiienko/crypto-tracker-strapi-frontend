@@ -1,75 +1,95 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
 
 :root {
-  --ion-font-family: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+  --ion-font-family: "Manrope", "SF Pro Text", -apple-system, sans-serif;
 
-  --ion-background-color: #0a0f1a;
-  --ion-background-color-rgb: 10, 15, 26;
-  --ion-text-color: #e8eefc;
-  --ion-text-color-rgb: 232, 238, 252;
+  /* Light theme */
+  --ion-background-color: #eef1f8;
+  --ion-background-color-rgb: 238, 241, 248;
+  --ion-text-color: #0d1b30;
+  --ion-text-color-rgb: 13, 27, 48;
 
-  --ion-color-primary: #56d7ff;
-  --ion-color-primary-rgb: 86, 215, 255;
-  --ion-color-primary-contrast: #04111c;
-  --ion-color-primary-contrast-rgb: 4, 17, 28;
-  --ion-color-primary-shade: #4cbde0;
-  --ion-color-primary-tint: #67dcff;
+  --ion-color-primary: #007aff;
+  --ion-color-primary-rgb: 0, 122, 255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #006ee3;
+  --ion-color-primary-tint: #1a88ff;
 
-  --ion-color-secondary: #ffb86b;
-  --ion-color-secondary-rgb: 255, 184, 107;
-  --ion-color-secondary-contrast: #1f1406;
-  --ion-color-secondary-contrast-rgb: 31, 20, 6;
-  --ion-color-secondary-shade: #e2a260;
-  --ion-color-secondary-tint: #ffc07a;
+  --ion-color-secondary: #9b51e0;
+  --ion-color-secondary-rgb: 155, 81, 224;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #8847c5;
+  --ion-color-secondary-tint: #a563e3;
 
-  --ion-color-success: #45db96;
-  --ion-color-danger: #ff5f79;
-  --ion-color-medium: #95a3bf;
+  --ion-color-success: #34c759;
+  --ion-color-danger: #ff3b30;
+  --ion-color-warning: #f2994a;
+  --ion-color-medium: #8896b3;
 
-  --app-surface-1: rgba(18, 28, 46, 0.82);
-  --app-surface-2: rgba(23, 36, 58, 0.9);
-  --app-border: rgba(124, 162, 224, 0.24);
-  --app-shadow: 0 16px 34px rgba(0, 0, 0, 0.36);
+  --app-surface-1: rgba(255, 255, 255, 0.78);
+  --app-surface-2: rgba(255, 255, 255, 0.52);
+  --app-border: rgba(255, 255, 255, 0.8);
+  --app-border-subtle: rgba(30, 40, 70, 0.08);
+  --app-shadow: 0 12px 30px rgba(30, 40, 70, 0.12);
+  --app-text-secondary: #6b7a99;
+  --app-positive: #2ba84a;
+  --app-negative: #ff3b30;
 }
 
 ion-content {
   --background:
     radial-gradient(
-      circle at 12% 8%,
-      rgba(86, 215, 255, 0.12),
-      transparent 36%
+      circle at 92% -4%,
+      rgba(52, 199, 89, 0.28),
+      transparent 48%
     ),
     radial-gradient(
-      circle at 88% 14%,
-      rgba(255, 184, 107, 0.11),
-      transparent 34%
+      circle at -12% 58%,
+      rgba(0, 122, 255, 0.22),
+      transparent 52%
     ),
-    linear-gradient(180deg, #0b1220 0%, #090f1a 45%, #070c16 100%);
+    radial-gradient(
+      circle at 94% 96%,
+      rgba(155, 81, 224, 0.18),
+      transparent 46%
+    ),
+    linear-gradient(180deg, #eef1f8 0%, #e4e9f3 55%, #eceff6 100%);
 }
 
 ion-toolbar {
-  --background: rgba(11, 17, 31, 0.74);
+  --background: rgba(238, 241, 248, 0.72);
   --border-color: transparent;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(20px) saturate(180%) brightness(1.03);
+  -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.03);
+}
+
+ion-header {
+  box-shadow: none;
 }
 
 ion-header ion-title {
   font-weight: 800;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+  color: var(--ion-text-color);
 }
 
 ion-searchbar {
-  --background: var(--app-surface-1);
+  --background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.78),
+    rgba(255, 255, 255, 0.5)
+  );
   --color: var(--ion-text-color);
-  --placeholder-color: #98a6bf;
-  --box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
-  --border-radius: 26px;
+  --placeholder-color: #8896b3;
+  --box-shadow: none;
+  --border-radius: 14px;
 }
 
 ion-tab-bar {
-  --background: rgba(12, 19, 35, 0.86);
-  --border: 1px solid var(--app-border);
-  --color: #94a4c3;
-  --color-selected: #f3f8ff;
-  backdrop-filter: blur(10px);
+  --background: transparent;
+  --border: none;
+  --color: #8896b3;
+  --color-selected: #0d1b30;
 }

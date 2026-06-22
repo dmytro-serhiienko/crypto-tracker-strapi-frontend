@@ -1,27 +1,36 @@
 .coin-card {
-  --border-radius: 14px;
-  --background: linear-gradient(145deg, #111827, #0d1424);
-  --padding-start: 12px;
-  --inner-padding-end: 12px;
-  margin: 10px 12px;
-  border: 1px solid var(--app-border);
-  border-radius: 14px;
-  box-shadow: var(--app-shadow);
+  --border-radius: 16px;
+  --background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.82),
+    rgba(255, 255, 255, 0.56)
+  );
+  --padding-start: 14px;
+  --inner-padding-end: 14px;
+  margin: 8px 0;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 16px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 8px 24px rgba(30, 40, 70, 0.09);
+  backdrop-filter: blur(24px) saturate(180%) brightness(1.02);
+  -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.02);
 }
 
 .coin-logo {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   display: grid;
   place-items: center;
   background: linear-gradient(
-    145deg,
-    rgba(86, 215, 255, 0.2),
-    rgba(255, 184, 107, 0.14)
+    135deg,
+    rgba(0, 122, 255, 0.2),
+    rgba(52, 199, 89, 0.18)
   );
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #f6fbff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #1a2744;
 }
 
 .coin-logo img {
@@ -29,59 +38,65 @@
   height: 100%;
   object-fit: contain;
   padding: 4px;
+  border-radius: 50%;
 }
 
 .coin-info {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
 }
 
 .coin-name {
   overflow: hidden;
   color: var(--ion-text-color);
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 800;
   letter-spacing: 0.01em;
-  line-height: 1.15;
+  line-height: 1.2;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .coin-symbol {
   margin: 0;
-  color: var(--ion-color-medium);
-  font-size: 0.86rem;
+  color: var(--app-text-secondary);
+  font-size: 0.78rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  line-height: 1.15;
+  line-height: 1.2;
+  font-weight: 600;
 }
 
 .coin-category {
   align-self: flex-start;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+  padding: 3px 8px !important;
+  border-radius: 8px !important;
+  letter-spacing: 0.03em;
   white-space: nowrap;
 }
 
 .coin-price {
-  width: 104px;
+  width: 106px;
   display: grid;
-  gap: 4px;
+  gap: 3px;
   justify-items: end;
   font-size: 0.82rem;
 }
 
 .coin-price strong {
-  font-size: 0.95rem;
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: var(--ion-text-color);
 }
 
 .positive {
-  color: #45db96;
+  color: var(--app-positive);
 }
 
 .negative {
-  color: #ff5f79;
+  color: var(--app-negative);
 }

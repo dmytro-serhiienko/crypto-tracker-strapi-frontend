@@ -1,12 +1,12 @@
 .state-text {
-  padding: 32px 16px;
+  padding: 48px 16px;
   text-align: center;
-  color: #a9b7d1;
+  color: var(--app-text-secondary);
 }
 
 ion-list {
   background: transparent;
-  padding-top: 8px;
+  padding: 8px 16px;
 }
 
 ion-item-sliding {

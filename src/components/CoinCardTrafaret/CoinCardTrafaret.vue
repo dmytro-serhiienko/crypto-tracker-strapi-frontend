@@ -16,7 +16,7 @@
     <ion-label class="coin-info">
       <strong class="coin-name">{{ coin.name }}</strong>
       <p class="coin-symbol">{{ coin.symbol }}</p>
-      <ion-badge class="coin-category" color="medium">
+      <ion-badge class="coin-category" :style="badgeStyle">
         {{ coin.category }}
       </ion-badge>
     </ion-label>
@@ -46,7 +46,7 @@ import { computed } from "vue";
 import { IonAvatar, IonBadge, IonItem, IonLabel } from "@ionic/vue";
 import SparklineChart from "@/components/GraficLine/GraficLine.vue";
 import { STRAPI_URL } from "@/services/api";
-import type { Coin } from "@/types/coin";
+import type { Coin, CoinCategory } from "@/types/coin";
 
 // интерфейс для типизации входных парам
 interface Props {
@@ -58,6 +58,22 @@ const props = defineProps<Props>();
 defineEmits<{
   open: [coin: Coin];
 }>();
+
+// цвета категорий
+const categoryColors: Record<CoinCategory, { bg: string; color: string }> = {
+  Layer1: { bg: "rgba(47,128,237,.14)", color: "#2F80ED" },
+  DeFi: { bg: "rgba(155,81,224,.14)", color: "#9B51E0" },
+  Meme: { bg: "rgba(242,153,74,.16)", color: "#c97a1e" },
+  Stablecoin: { bg: "rgba(39,174,96,.14)", color: "#27AE60" },
+};
+
+const badgeStyle = computed(() => {
+  const c = categoryColors[props.coin.category] ?? {
+    bg: "rgba(136,150,179,.12)",
+    color: "#6b7a99",
+  };
+  return { "--background": c.bg, "--color": c.color };
+});
 
 // вычисляем путь к изображению логотипа
 const logoUrl = computed(() =>

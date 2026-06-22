@@ -1,31 +1,290 @@
-.stats {
-  display: grid;
-  gap: 14px;
-  padding: 16px;
+.markets-content {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 0;
+  --padding-bottom: 100px;
 }
 
-.stats div {
-  padding: 18px;
-  border: 1px solid var(--app-border);
-  border-radius: 16px;
-  background: linear-gradient(
-    145deg,
-    var(--app-surface-1),
-    var(--app-surface-2)
-  );
-  box-shadow: var(--app-shadow);
+.markets-toolbar {
+  --background: transparent;
+  --border-color: transparent;
+  --padding-start: 0;
+  --padding-end: 0;
 }
 
-.stats span {
-  display: block;
-  margin-bottom: 6px;
-  color: var(--ion-color-medium);
-  font-size: 0.82rem;
+.markets-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 14px 20px 10px;
+}
+
+.markets-subtitle {
+  margin: 0 0 2px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--app-text-secondary);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
 }
 
-.stats strong {
-  font-size: 1.6rem;
+.markets-title {
+  margin: 0;
+  font-size: 2rem;
   font-weight: 800;
+  color: var(--ion-text-color);
+  line-height: 1;
+}
+
+.refresh-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 4px 12px rgba(30, 40, 70, 0.12);
+  color: var(--ion-color-primary);
+  font-size: 1.1rem;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.refresh-circle:disabled {
+  opacity: 0.5;
+}
+
+/* Market summary */
+.market-summary {
+  display: flex;
+  align-items: stretch;
+  height: 96px;
+  padding: 16px 18px;
+  border-radius: 22px;
+  margin-bottom: 14px;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.78),
+    rgba(255, 255, 255, 0.52)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 12px 30px rgba(30, 40, 70, 0.12);
+  backdrop-filter: blur(24px) saturate(180%) brightness(1.03);
+  -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.03);
+}
+
+.summary-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.summary-divider {
+  width: 1px;
+  background: rgba(30, 40, 70, 0.1);
+  margin: 2px 16px;
+}
+
+.summary-label {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--app-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.summary-value {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--ion-text-color);
+  line-height: 1.1;
+}
+
+.summary-change {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.summary-change.positive {
+  color: var(--app-positive);
+}
+.summary-change.negative {
+  color: var(--app-negative);
+}
+
+/* Search */
+.markets-search {
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  border-radius: 16px !important;
+  backdrop-filter: blur(22px) saturate(180%) brightness(1.03);
+  -webkit-backdrop-filter: blur(22px) saturate(180%) brightness(1.03);
+}
+
+/* Segment */
+.markets-segment {
+  --background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.38)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 14px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-bottom: 16px;
+  backdrop-filter: blur(22px) saturate(180%) brightness(1.03);
+  -webkit-backdrop-filter: blur(22px) saturate(180%) brightness(1.03);
+}
+
+.markets-segment::-webkit-scrollbar {
+  display: none;
+}
+
+.markets-segment ion-segment-button {
+  --color: #6b7a99;
+  --color-checked: #0d1b30;
+  --indicator-color: rgba(255, 255, 255, 0.96);
+  --indicator-box-shadow: 0 2px 8px rgba(30, 40, 70, 0.14);
+}
+
+/* Section headers */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 0 2px;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--ion-text-color);
+}
+
+.section-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ion-color-primary);
+  cursor: pointer;
+}
+
+/* Top Movers horizontal scroll */
+.movers-row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 2px 2px 14px;
+  scrollbar-width: none;
+  margin: 0 -2px;
+}
+
+.movers-row::-webkit-scrollbar {
+  display: none;
+}
+
+.mover-card {
+  flex-shrink: 0;
+  width: 110px;
+  padding: 12px 10px;
+  border-radius: 18px;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.54)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 6px 18px rgba(30, 40, 70, 0.09);
+  backdrop-filter: blur(24px) saturate(180%) brightness(1.02);
+  -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.02);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.mover-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #fff;
+  overflow: hidden;
+}
+
+.mover-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 3px;
+  border-radius: 50%;
+}
+
+.mover-symbol {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--ion-text-color);
+}
+
+.mover-price {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--app-text-secondary);
+}
+
+.mover-chip {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 8px;
+}
+
+.chip-positive {
+  background: rgba(43, 168, 74, 0.12);
+  color: var(--app-positive);
+}
+
+.chip-negative {
+  background: rgba(255, 59, 48, 0.12);
+  color: var(--app-negative);
+}
+
+/* Sort inline */
+.sort-inline {
+  --background: transparent;
+  --color: var(--ion-color-primary);
+  --padding-start: 0;
+  --padding-end: 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  max-width: 120px;
+}
+
+.empty-state {
+  padding: 48px 16px;
+  text-align: center;
+  color: var(--app-text-secondary);
+  font-size: 0.95rem;
 }
